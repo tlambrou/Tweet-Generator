@@ -3,9 +3,9 @@ import string
 
 
 
-def histogram():
-    punctuations = '''!()-;:'"\,,<>./?@#$%^&*_~'''
-    with open("bible.txt") as f:
+def histogram(source):
+    # punctuations = '''!()-;:'"\,,<>./?@#$%^&*_~'''
+    with open(source) as f:
         wordList = f.read().split()
         # for word in wordList:
         #     no_punct = ""
@@ -17,6 +17,10 @@ def histogram():
     return dict(wordcount)
 
 
+def unique_words(histogram):
+    return len(histogram)
+
 if __name__ == '__main__':
-    words = histogram()
-    print(words)
+    source = "bible.txt"
+    histogram = histogram(source)
+    print(unique_words(histogram))
