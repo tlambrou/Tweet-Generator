@@ -4,17 +4,25 @@ import string
 
 
 def histogram(source):
-    # punctuations = '''!()-;:'"\,,<>./?@#$%^&*_~'''
     with open(source) as f:
         wordList = f.read().split()
+        # punctuations = '''!()-;:'"\,,<>./?@#$%^&*_~'''
         # for word in wordList:
+            # exclude = set(string.punctuation)
+            # word = ''.join(ch for ch in word if ch not in exclude)
         #     no_punct = ""
         #     for char in word:
         #         if char not in punctuations:
         #             no_punct = no_punct + char
         #             word = no_punct
-        wordcount = Counter(wordList)
-    return dict(wordcount)
+        dictionary = {}
+        for word in wordList:
+            if word not in dictionary:
+                dictionary[word] = 1
+            else:
+                dictionary[word] += 1
+        # wordcount = Counter(wordList)
+    return dictionary
 
 
 def unique_words(histogram):
@@ -29,5 +37,6 @@ def frequency(word, histogram):
 if __name__ == '__main__':
     source = "bible.txt"
     histogram = histogram(source)
+    print(histogram)
     print(unique_words(histogram))
-    print(frequency("Lord", histogram))
+    print(frequency("death", histogram))
