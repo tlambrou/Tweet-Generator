@@ -20,7 +20,14 @@ def histogram(source):
 def unique_words(histogram):
     return len(histogram)
 
+def frequency(word, histogram):
+    if word in histogram:
+        return histogram[word]
+    else:
+        return "Word not in text."
+
 if __name__ == '__main__':
     source = "bible.txt"
     histogram = histogram(source)
     print(unique_words(histogram))
+    print(frequency("Lord", histogram))
