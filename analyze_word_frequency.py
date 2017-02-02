@@ -2,26 +2,16 @@ from collections import Counter
 import string
 
 
-
 def histogram(source):
     with open(source) as f:
-        wordList = f.read().split()
-        # punctuations = '''!()-;:'"\,,<>./?@#$%^&*_~'''
-        # for word in wordList:
-            # exclude = set(string.punctuation)
-            # word = ''.join(ch for ch in word if ch not in exclude)
-        #     no_punct = ""
-        #     for char in word:
-        #         if char not in punctuations:
-        #             no_punct = no_punct + char
-        #             word = no_punct
         dictionary = {}
+        wordList = f.read().split()
         for word in wordList:
+            word = re.sub('[.,:]', '', word)
             if word not in dictionary:
                 dictionary[word] = 1
             else:
                 dictionary[word] += 1
-        # wordcount = Counter(wordList)
     return dictionary
 
 
