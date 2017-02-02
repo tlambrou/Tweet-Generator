@@ -32,7 +32,7 @@ def frequency(word, histogram):
     if word in histogram:
         return histogram[word]
     else:
-        return "Word not in text."
+        return 0
 
 if __name__ == '__main__':
     source = "bible.txt"
