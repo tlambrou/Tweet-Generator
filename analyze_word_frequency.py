@@ -19,10 +19,12 @@ def unique_words(histogram):
     return len(histogram)
 
 def frequency(word, histogram):
-    if word in histogram:
-        return histogram[word]
-    else:
-        return 0
+    # if word in histogram:
+    #     return histogram[word]
+    # else:
+    #     return 0
+    # return histogram[word] if word in histogram else 0
+    return histogram.get(word, 0)
 
 if __name__ == '__main__':
     source = "bible.txt"
