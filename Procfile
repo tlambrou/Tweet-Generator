@@ -1,2 +1,1 @@
-web: gunicorn gettingstarted.wsgi --log-file -
-web: venv/bin/web
+web: gunicorn app:app

@@ -5,7 +5,7 @@ import sys
 
 def random_shuffle(count):
     # Creates a random number between 1 and the total number of tokens
-    rand_index = random.randint(1, count)
+    rand_index = random.randint(0, count)
     return rand_index
 
 
@@ -19,12 +19,13 @@ def create_list(histogram):
 
 def random_sample(listogram):
     sumToRand = 0
-    random = random_shuffle(len(listogram) + 1)
+    random = random_shuffle(len(listogram) - 1)
     for word in listogram:
         if sumToRand >= random:
             return word[0]
         else:
             sumToRand += word[1]
+
 
 if __name__ == '__main__':
     source = sys.argv[1]
