@@ -1,13 +1,15 @@
 from collections import Counter
+import sys
 import string
+import re
 
 
 def histogram(source):
+    dictionary = {}
     with open(source) as f:
-        dictionary = {}
         wordList = f.read().split()
         for word in wordList:
-            word = re.sub('[.,:]', '', word)
+            # word = re.sub('[.,:]', '', word)
             if word not in dictionary:
                 dictionary[word] = 1
             else:
