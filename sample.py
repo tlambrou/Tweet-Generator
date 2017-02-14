@@ -3,13 +3,13 @@ import analyze_word_frequency
 import sys
 
 
-def random_shuffle(count):
+def random_shuffle(count): #2
     # Creates a random number between 1 and the total number of tokens
-    rand_index = random.randint(0, count)
+    rand_index = random.randint(1, count)
     return rand_index
 
 
-def create_list(histogram):
+def create_list(histogram): #5
     listogram = []
     for key, value in histogram.iteritems():
         pair = [key,value]
@@ -17,9 +17,12 @@ def create_list(histogram):
     return listogram
 
 
-def random_sample(listogram):
-    sumToRand = 0
-    random = random_shuffle(len(listogram) - 1)
+def random_sample(listogram): #10
+    sumToRand = 1
+    length = 0
+    for word in listogram:
+        length += word[1]
+    random = random_shuffle(length)
     for word in listogram:
         if sumToRand >= random:
             return word[0]
@@ -27,8 +30,15 @@ def random_sample(listogram):
             sumToRand += word[1]
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  #11
     source = sys.argv[1]
     histogram = analyze_word_frequency.histogram(source)
     listogram = create_list(histogram)
-    print(random_sample(listogram))
+    length = 0
+    for word in listogram:
+        length += word[1]
+    output = str(histogram) + " \n\n"
+    for i in range(1, 10):
+        output += random_sample(listogram) + " "
+    output += "  This is the length: " + str(length)
+    print(output)

@@ -4,12 +4,13 @@ import string
 import re
 
 
-def histogram(source):
+def histogram(source): #9
     dictionary = {}
     with open(source) as f:
         wordList = f.read().split()
+        
         for word in wordList:
-            # word = re.sub('[.,:]', '', word)
+            word = re.sub('[.,:]', '', word)
             if word not in dictionary:
                 dictionary[word] = 1
             else:
@@ -17,10 +18,10 @@ def histogram(source):
     return dictionary
 
 
-def unique_words(histogram):
+def unique_words(histogram): #1
     return len(histogram)
 
-def frequency(word, histogram):
+def frequency(word, histogram): #1
     # if word in histogram:
     #     return histogram[word]
     # else:
@@ -28,7 +29,7 @@ def frequency(word, histogram):
     # return histogram[word] if word in histogram else 0
     return histogram.get(word, 0)
 
-if __name__ == '__main__':
+if __name__ == '__main__': #5
     source = "bible.txt"
     histogram = histogram(source)
     print(histogram)

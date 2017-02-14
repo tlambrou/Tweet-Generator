@@ -3,7 +3,7 @@ import sys
 import linecache
 
 
-def get_word():
+def get_word(): #6
     filename = "/usr/share/dict/words"
     rand_index = random.randint(1, 235886)
     word = linecache.getline(filename, rand_index, module_globals=None)
@@ -11,13 +11,13 @@ def get_word():
     return word + " "
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': #5
     count = int(sys.argv[1])
     sentence = ""
     for i in range(count):
         sentence += get_word()
     print(sentence)
-    
+
 # with open('file.txt', 'r') as searchfile:
 #     for line in searchfile:
 #         if 'searchphrase' in line:
