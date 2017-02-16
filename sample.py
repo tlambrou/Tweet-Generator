@@ -1,3 +1,4 @@
+# Module for generating a sample word from a histogram
 import random
 import analyze_word_frequency
 import sys
@@ -18,17 +19,12 @@ def create_list(histogram): #5
 
 
 def random_sample(listogram): #10
-    sumToRand = 1
-    length = 0
-    for word in listogram:
-        length += word[1]
-    random = random_shuffle(length)
-    for word in listogram:
+    sumToRand = 0
+    random = random_shuffle(listogram.tokens)
+    for index, word in enumerate(listogram):
+        sumToRand += word[1]
         if sumToRand >= random:
             return word[0]
-        else:
-            sumToRand += word[1]
-
 
 if __name__ == '__main__':  #11
     source = sys.argv[1]
