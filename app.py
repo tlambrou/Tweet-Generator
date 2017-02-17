@@ -15,8 +15,9 @@ def hello_world(): #11
     filename = "bible.txt"
     sentence_length = random.randint(9, 29)
     word_list = histograms.read_from_file(filename)
-    listogram = histograms.Listogram(word_list)
-    output = sentence.generate_random_sentence(listogram, sentence_length)
+    dictodicto = tokenize.dict_o_listo(word_list)
+    # listogram = histograms.Listogram(word_list)
+    output = sentence.generate_order1_sentence(dictodicto, sentence_length)
     return output
 
 if __name__ == '__main__':
@@ -31,8 +32,9 @@ if __name__ == '__main__':
         filename = arguments[0]
         sentence_length = arguments[1]
     word_list = histograms.read_from_file(filename)
-    listogram = histograms.Listogram(word_list)
-    output = sentence.generate_random_sentence(listogram, sentence_length)
+    dictodicto = tokenize.dict_o_listo(word_list)
+    # listogram = histograms.Listogram(word_list)
+    output = sentence.generate_order1_sentence(dictodicto, sentence_length)
     print(output)
     app.run()
 

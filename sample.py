@@ -6,6 +6,7 @@ import sys
 
 def random_shuffle(count): #2
     # Creates a random number between 1 and the total number of tokens
+    print(count)
     rand_index = random.randint(1, count)
     return rand_index
 
@@ -25,6 +26,15 @@ def random_sample(listogram): #10
         sumToRand += word[1]
         if sumToRand >= random:
             return word[0]
+
+def random_sample_dicto(dictogram): #10
+    sumToRand = 0
+    random = random_shuffle(len(dictogram))
+    for word in dictogram:
+        print(word)
+        sumToRand += dictogram[word]
+        if sumToRand >= random:
+            return word
 
 if __name__ == '__main__':  #11
     source = sys.argv[1]
