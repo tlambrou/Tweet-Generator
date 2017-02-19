@@ -12,6 +12,7 @@ def dict_o_listo(word_list):
         first = word_list[i]
         second = word_list[i + 1]
         dictionary[first].update([second])
+    dictionary[word_list[-1]] = {word_list[0], 1}
     return dictionary
 
 def read_from_file(filename):

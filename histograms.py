@@ -112,7 +112,6 @@ if __name__ == '__main__':
         # test hisogram on letters in a word
         word = 'abracadabra'
         test_histogram(word)
-        print()
         # test hisogram on words in a sentence
         sentence = 'one fish two fish red fish blue fish'
         word_list = sentence.split()

@@ -31,7 +31,6 @@ def random_sample_dicto(dictogram): #10
     sumToRand = 0
     random = random_shuffle(len(dictogram))
     for word in dictogram:
-        print(word)
         sumToRand += dictogram[word]
         if sumToRand >= random:
             return word
