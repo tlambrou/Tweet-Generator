@@ -55,7 +55,6 @@ class LinkedList(object):
 
     def append(self, item):
         """Insert the given item at the tail of this linked list"""
-        # TODO: append given item
         if self.head is None:
             self.head = Node(item)
             self.tail = self.head
@@ -101,8 +100,12 @@ class LinkedList(object):
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality"""
-        # TODO: find item where quality(item) is True
-        pass
+        current = self.head
+        while current is not None:
+            if quality(current.data):
+                return current.data
+            current = current.next
+        return None
 
 
 def test_linked_list():
