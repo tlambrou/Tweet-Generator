@@ -108,14 +108,26 @@
 
 **Activity:**
 - Review Markov chains, how to generate one and sample sentences from it
+- Arrays and linked lists lecture and discussion
 - Act out how dynamic arrays and linked lists work
-- Review slides on [arrays and linked lists](ArraysLinkedLists.pdf)
 
 **Tutorial:**
 - Page 8: Linked List
 
 **Objectives:**
-- Implement LinkedList class using [starter code](templates/linkedlist.py) and [unit tests](templates/test_linkedlist.py)
+- Implement `LinkedList` class using [starter code](templates/linkedlist.py) and [unit tests](templates/test_linkedlist.py)
+
+**Resources:**
+- Watch Make School's [linked list lecture]
+- Review Make School's [linked list slides]
+- Play with Visualgo's [interactive animations of linked lists][visualgo list]
+- Read Wikipedia's [dynamic array article] and [linked list article]
+
+[dynamic array article]: https://en.wikipedia.org/wiki/Dynamic_array
+[linked list article]: https://en.wikipedia.org/wiki/Linked_list
+[linked list lecture]: https://www.youtube.com/watch?v=3WWuf4H61Nk
+[linked list slides]: ArraysLinkedLists.pdf
+[visualgo list]: https://visualgo.net/list
 
 
 ### Class 9: Tuesday, February 21
@@ -123,14 +135,50 @@
 **Activity:**
 - Draw diagram of how linked list data structure is stored in memory
 - Compare similarities and differences in diagram representations
-- Act out how hash functions and hash tables work
-- Review slides on [hash tables](HashTables.pdf)
+- Hash tables lecture and discussion
 
 **Tutorial:**
 - Page 9: Hash Table
 
 **Objectives:**
-- Implement HashTable class using [starter code](templates/hashtable.py) and [unit tests](templates/test_hashtable.py)
+- Implement `HashTable` class using [starter code](templates/hashtable.py) and [unit tests](templates/test_hashtable.py)
+
+**Resources:**
+- Watch Make School's [hash table lecture]
+- Review Make School's [hash table slides]
+- Read Wikipedia's [hash table article]
+
+[hash table article]: https://en.wikipedia.org/wiki/Hash_table
+[hash table lecture]: https://www.youtube.com/watch?v=nLWXJ6IDKmQ
+[hash table slides]: HashTables.pdf
+
+
+### Class 10: Thursday, February 23
+
+**Activity:**
+- Draw diagram of how hash table data structure is stored in memory
+- Compare similarities and differences in diagram representations
+- Algorithm analysis lecture and discussion
+
+**Tutorial:**
+- Page 10: Performance Analysis (stretch challenge)
+- Page 12: Creating a Corpus (important to complete)
+
+**Objectives:**
+- Analyze your algorithms for best case and worst case time complexity
+- Annotate `LinkedList` and `HashTable` methods with time complexity
+    - See `LinkedList` [solutions](solutions/linkedlist.py) for examples: `items` and `find` methods
+- Benchmark the actual performance of your `LinkedList` and `HashTable` data structures and the built-in `list` and `dict` types (optional stretch challenge)
+- Collect a corpus of text from which to learn a Markov chain grammar model
+
+**Resources:**
+- Review Make School's [algorithm analysis slides]
+- Read InterviewCake's [article on the idea behind big O notation][IC big O]
+- Read StackOverflow's [plain English explanations of big O notation][SO big O]
+
+[algorithm analysis slides]: AlgorithmAnalysis.pdf
+[IC big O]: https://www.interviewcake.com/article/python/big-o-notation-time-and-space-complexity
+[SO big O]: http://stackoverflow.com/questions/487258/what-is-a-plain-english-explanation-of-big-o-notation
 
 
 ## Working with this GitHub repository
