@@ -33,8 +33,12 @@ class HashTable(object):
 
     def values(self):
         """Return a list of all values in this hash table"""
-        # TODO: Collect all values in each of the buckets
-        pass
+        # Collect all values in each of the buckets
+        all_values = []
+        for bucket in self.buckets:
+            for key, value in bucket.items():
+                all_values.append(value)
+        return all_values
 
     def items(self):
         """Return a list of all items (key-value pairs) in this hash table"""
@@ -46,28 +50,74 @@ class HashTable(object):
 
     def length(self):
         """Return the length of this hash table by traversing its buckets"""
-        # TODO: Count number of key-value entries in each of the buckets
-        return 0
+        # Count number of key-value entries in each of the buckets
+        length = 0
+        for bucket in self.buckets:
+            for key, value in bucket.items():
+                length += 1
+        return length
 
     def contains(self, key):
         """Return True if this hash table contains the given key, or False"""
-        # TODO: Check if the given key exists in a bucket
-        pass
+        # Check if the given key exists in a bucket
+        # bucket = self.buckets[self._bucket_index(key)]
+        # tup = bucket.find(lambda tup: tup[0] == key)
+        # if value is not None:
+        #     return True
+        # return False
+        for bucket in self.buckets:
+            for hash_key, value in bucket.items():
+                if hash_key == key:
+                    return True
+        return False
+
 
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError"""
-        # TODO: Check if the given key exists and return its associated value
-        pass
+        # Check if the given key exists and return its associated value
+        bucket = self.buckets[self._bucket_index(key)]
+        tup = bucket.find(lambda tup: tup[0] == key)
+
+        if tup is not None:
+            return tup[1]
+        # while bucket is not None:
+        #     if bucket.data[0] == key:
+        #         return bucket.data[1]
+        #     bucket = bucket.next
+        raise KeyError("Key not contained in this hash table")
 
     def set(self, key, value):
         """Insert or update the given key with its associated value"""
-        # TODO: Insert or update the given key-value entry into a bucket
-        pass
+        # Insert or update the given key-value entry into a bucket
+        bucket = self.buckets[self._bucket_index(key)]
+        tup = bucket.find(lambda tup: tup[0] == key)
+        if tup is not None:
+            bucket.delete(tup)
+            tup = (key, value)
+            bucket.append(tup)
+            return
+        tup = (key, value)
+        bucket.append(tup)
+
+        # while bucket.next is not None:
+        #     if bucket.data[0] == key:
+        #         bucket.data[1] = value
+        #     bucket = bucket.next
+        # ll = self.buckets[self._bucket_index(key)]
+        # ll.append((key, value))
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError"""
-        # TODO: Find the given key and delete its entry if found
-        pass
+        # Find the given key and delete its entry if found
+        bucket = self.buckets[self._bucket_index(key)]
+        tup = bucket.find(lambda tup: tup[0] == key)
+        if tup is not None:
+            bucket.delete(tup)
+            return
+        # while current is not None:
+        #     if current.data[0] == key:
+        #         ll.delete(current.data)
+        raise KeyError("Key not contained in this hash table")
 
 
 def test_hash_table():
