@@ -86,18 +86,16 @@ class HashTable(object):
         #     bucket = bucket.next
         raise KeyError("Key not contained in this hash table")
 
-    def set(self, key, value):
+    def set(self, key, value): #O(l^2)
         """Insert or update the given key with its associated value"""
         # Insert or update the given key-value entry into a bucket
-        bucket = self.buckets[self._bucket_index(key)]
-        tup = bucket.find(lambda tup: tup[0] == key)
-        if tup is not None:
-            bucket.delete(tup)
-            tup = (key, value)
-            bucket.append(tup)
-            return
-        tup = (key, value)
-        bucket.append(tup)
+        index = self._bucket_index(key) #O(1)
+        bucket = self.buckets[index] #O(1)
+        tup = bucket.find(lambda tup: tup[0] == key) #O(l) = O(n/b)
+        if tup is not None: #O(1)
+            bucket.delete(tup) #worst case O(n/b)
+        tup = (key, value) #O(1)
+        bucket.append(tup) #O(1)
 
         # while bucket.next is not None:
         #     if bucket.data[0] == key:
